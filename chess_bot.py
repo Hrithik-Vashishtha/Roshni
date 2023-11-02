@@ -1,4 +1,3 @@
-import chess
 from stockfish import Stockfish
 class ChessEngine():
     def __init__(self):
