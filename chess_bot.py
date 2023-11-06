@@ -1,3 +1,4 @@
+import chess
 from stockfish import Stockfish
 class ChessEngine():
     def __init__(self):
@@ -13,7 +14,7 @@ class ChessEngine():
     def get_eval_bar(self):
         self.stockfish.get_evaluation()
 
-    def legal_move(self, move):
+    def legal_move(self, move): 
         self.stockfish.is_move_correct(move)
 
     def reset_board(self):
