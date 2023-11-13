@@ -1,14 +1,15 @@
 from chess_bot import ChessEngine
 import chess
 
+class Chess:
+    def __init__(self, chess_engine):
+        self.chess_engine = chess_engine
+
+    def update(self):
+        best_move = self.chess_engine.get_best_move()
+        return self.chess_engine.update_position(best_move)
+
+# Example usage:
 chess_engine = ChessEngine()
-
-initial_position = chess.STARTING_FEN   
-chess_engine.set_position(initial_position)
-
-best_move = chess_engine.get_best_move()
-
-print(f"The best move is: {best_move}")
-
-def best_move():
-    pass
+chess_game = Chess(chess_engine)
+chess_game.update()
