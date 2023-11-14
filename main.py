@@ -40,5 +40,21 @@ class ChessGame():
         print("bot move")
         return self.chess_engine.get_best_move()
 
-    while True:
-        pass
+    def play_game(self):
+        while True:
+            #players turn
+            player_move_str  = self.player_move
+            if player_move_str:
+                return self.chess_engine.update_position(player_move_str)
+            else:
+                print("No input recieved, try again")
+                return self.play_game
+            
+            #bot's turn
+            bot_move_str = self.bot_move
+            return self.chess_engine.update_position(bot_move_str)
+
+            current_position = self.chess_engine.get_current_position()
+            print("current_position: ", current_position)
+        
+            
