@@ -25,36 +25,43 @@
 # chess_game.update()
 
 
-from speech_recognition_utils import audio_input
+# from speech_recognition_utils import audio_input
+# from chess_bot import ChessEngine
+
+# class ChessGame():
+#     def __int__(self):
+#         self.chess_engine = ChessEngine
+
+#     def player_move(self):
+#         print("player's Turn")
+#         audio = audio_input()
+
+#     def bot_move(self):
+#         print("bot move")
+#         return self.chess_engine.get_best_move()
+
+#     def play_game(self):
+#         while True:
+#             #players turn
+#             player_move_str  = self.player_move()
+#             if player_move_str:
+#                 if self.chess_engine.legal_move(player_move_str):
+#                     self.chess_engine.update_position(player_move_str)
+#             else:
+#                 print("No input recieved, try again")
+#                 return self.play_game
+            
+#             #bot's turn
+#             bot_move_str = self.bot_move
+#             return self.chess_engine.update_position(bot_move_str)
+
+#             current_position = self.chess_engine.get_current_position()
+#             print("current_position: ", current_position)
+# chess = ChessGame()
+# chess.play_game()
+
 from chess_bot import ChessEngine
+from speech_recognition_utils import SpeechRecognition
 
-class ChessGame():
-    def __int__(self):
-        self.chess_engine = ChessEngine
-
-    def player_move(self):
-        print("player's Turn")
-        return audio_input()
-
-    def bot_move(self):
-        print("bot move")
-        return self.chess_engine.get_best_move()
-
-    def play_game(self):
-        while True:
-            #players turn
-            player_move_str  = self.player_move
-            if player_move_str:
-                return self.chess_engine.update_position(player_move_str)
-            else:
-                print("No input recieved, try again")
-                return self.play_game
-            
-            #bot's turn
-            bot_move_str = self.bot_move
-            return self.chess_engine.update_position(bot_move_str)
-
-            current_position = self.chess_engine.get_current_position()
-            print("current_position: ", current_position)
-        
-            
+class Chess:
+    pass

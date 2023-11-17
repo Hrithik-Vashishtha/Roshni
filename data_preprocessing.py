@@ -1,12 +1,3 @@
-from speech_recognition_utils import audio_input
-def uci_format():
-    text = audio_input()
-    text = text.lower()
-    text = text.replace(" ", "")
-
-    return text
-
-
 # import spacy
 
 # def convert_to_uci_with_nlp(spoken_move):
