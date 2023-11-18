@@ -1,6 +1,6 @@
 import speech_recognition as sr
+
 class SpeechRecognition:
-    
     def audio_input(self):
         r = sr.Recognizer()
         with sr.Microphone() as source:
@@ -12,5 +12,3 @@ class SpeechRecognition:
                 return text.lower().replace(" ","")
             except:
                 print("Sorry, I didn't get this")
-audio = SpeechRecognition()
-print(audio.audio_input())

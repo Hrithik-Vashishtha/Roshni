@@ -1,8 +1,10 @@
 from stockfish import Stockfish
+import chess
 class ChessEngine():
     def __init__(self):
         # Initialize the Stockfish engine
         self.stockfish = Stockfish("C:/ProgramData/stockfish/stockfish-windows-x86-64-modern.exe")
+        self.board = chess.Board()
 
     def set_position(self, fen):
         self.stockfish.set_fen_position(fen)
@@ -27,3 +29,7 @@ class ChessEngine():
 
     def set_elo_rating(self, data):
         self.stockfish.set_elo_rating(data)
+
+    def is_checkmate(self):
+        return self.board.is_checkmate()
+    
