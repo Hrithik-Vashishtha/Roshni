@@ -63,35 +63,27 @@
 from stockfish_engine import Stockfish, Board
 # from stockfish_engine import Board
 from speech_recognition_utils import SpeechRecognition
-# from chess import Board
+from chess import Board
 
 class Chess:
-    def __init__(self, stockfish, speech_recognition, board):
-        self.stockfish = stockfish
+    def __init__(self, chess_engine, speech_recognition):
+        self.chess_engine = chess_engine
         self.speech_recognition = speech_recognition
-        self.board = board
     
     def player_move(self):
         audio_input = self.speech_recognition.audio_input()
-        if audio_input and self.stockfish.legal_move(audio_input):
+        if audio_input and self.chess_engine.legal_move(audio_input):
             print(audio_input)
-            self.stockfish.update_position([audio_input])
-            print("Board after player's move")
-            print(self.board.get_board())
-        else:
-            print("Invalid move or no input received. Try Again")
+            return self.chess_engine.update_position([audio_input])
+        return "Try Again"
 
     def bot_move(self):
-        bot_input = self.stockfish.get_best_move()
-        self.stockfish.update_position([bot_input])
-        print("Board after bot's move")
-        print(self.board.get_board())    
-    # def play_game(self):
-    #     while not self.stockfish.game_over()
+        bot_input = self.chess_engine.get_best_move()
+        return self.chess_engine.update_position([bot_input])
 
 
-stockfish = Stockfish(path_to_stockfish)
+chess_engine = ChessEngine()
 speech_recognition = SpeechRecognition()
-chess_game = Chess(stockfish, speech_recognition)
+chess_game = Chess(chess_engine, speech_recognition)
 chess_game.player_move()
 chess_game.bot_move()

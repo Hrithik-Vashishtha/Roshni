@@ -1,5 +1,6 @@
 import speech_recognition as sr
 
+
 class SpeechRecognition:
     def audio_input(self):
         r = sr.Recognizer()
