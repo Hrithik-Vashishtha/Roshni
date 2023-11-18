@@ -62,6 +62,27 @@
 
 from chess_bot import ChessEngine
 from speech_recognition_utils import SpeechRecognition
+from chess import Board
 
 class Chess:
-    pass
+    def __init__(self, chess_engine, speech_recognition):
+        self.chess_engine = chess_engine
+        self.speech_recognition = speech_recognition
+    
+    def player_move(self):
+        audio_input = self.speech_recognition.audio_input()
+        if audio_input and self.chess_engine.legal_move(audio_input):
+            print(audio_input)
+            return self.chess_engine.update_position([audio_input])
+        return "Try Again"
+
+    def bot_move(self):
+        bot_input = self.chess_engine.get_best_move()
+        return self.chess_engine.update_position([bot_input])
+
+
+chess_engine = ChessEngine()
+speech_recognition = SpeechRecognition()
+chess_game = Chess(chess_engine, speech_recognition)
+chess_game.player_move()
+chess_game.bot_move()
