@@ -4,7 +4,7 @@ class ChessEngine():
     def __init__(self):
         # Initialize the Stockfish engine
         self.stockfish = Stockfish("C:/ProgramData/stockfish/stockfish-windows-x86-64-modern.exe")
-        self.board = chess.Board()
+        self.stockfish.set_fen_position("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1")
 
     def set_position(self, fen):
         self.stockfish.set_fen_position(fen)
@@ -32,4 +32,7 @@ class ChessEngine():
 
     def is_checkmate(self):
         return self.board.is_checkmate()
+    
+    def get_board(self):
+        return self.stockfish.get_board_visual()
     

@@ -60,8 +60,7 @@
 # chess = ChessGame()
 # chess.play_game()
 
-from stockfish_engine import Stockfish, Board
-# from stockfish_engine import Board
+from chess_bot import ChessEngine
 from speech_recognition_utils import SpeechRecognition
 from chess import Board
 
@@ -74,13 +73,14 @@ class Chess:
         audio_input = self.speech_recognition.audio_input()
         if audio_input and self.chess_engine.legal_move(audio_input):
             print(audio_input)
-            return self.chess_engine.update_position([audio_input])
+            self.chess_engine.update_position([audio_input])
+            print(self.chess_engine.get_board())
         return "Try Again"
 
     def bot_move(self):
         bot_input = self.chess_engine.get_best_move()
-        return self.chess_engine.update_position([bot_input])
-
+        self.chess_engine.update_position([bot_input])
+        print(self.chess_engine.get_board())
 
 chess_engine = ChessEngine()
 speech_recognition = SpeechRecognition()
