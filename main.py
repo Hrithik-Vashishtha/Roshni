@@ -70,6 +70,7 @@ class Chess:
         self.chess_engine = chess_engine
         self.speech_recognition = speech_recognition
         self.text_to_speech = text_to_speech
+        self.count = 3
     
     def player_move(self):
         audio_input = self.speech_recognition.audio_input()
@@ -77,7 +78,12 @@ class Chess:
             print(audio_input)
             self.chess_engine.update_position([audio_input])
             print(self.chess_engine.get_board())
-        return "Try Again"
+        else:
+            self.count -= 1
+            if self.count == 0:
+                self.text_to_speech.game_over()
+            self.text_to_speech.illegal_move(move, self.count)
+            self.player_move()
 
     def bot_move(self):
         bot_input = self.chess_engine.get_best_move()
