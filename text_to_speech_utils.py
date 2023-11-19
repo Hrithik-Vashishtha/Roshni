@@ -1,18 +1,3 @@
-# import pyttsx3
-
-# class TextToSpeech:
-#     def __init__(self, engine):
-#         self.engine = pyttsx3.init()          
-
-#     def speech(move):
-#         engine.setProperty('rate', 120)
-#         voices = engine.getProperty('voices')   
-#         engine.setProperty('voice', voices[1].id) 
-#         engine.say("moved played by opponent is", move)
-#         return engine.runAndWait()
-# text = TextToSpeech()
-# text.speech('e1e2')
-
 import pyttsx3
 
 class TextToSpeech:
@@ -37,7 +22,7 @@ class TextToSpeech:
 
     def illegal_move(self, move, count):
         self.engine.setProperty('rate', 120)
-        self.engine.say(f"The move {move} is illegal, please try again you have only {count} chances left")
+        self.engine.say(f"The move {move} is illegal, please try again, you have only {count} chances left")
         self.engine.runAndWait()
 
     def game_over(self):

@@ -82,7 +82,6 @@ class Chess:
             self.count -= 1
             if self.count == 0:
                 self.text_to_speech.game_over()
-                return
             self.text_to_speech.illegal_move(audio_input, self.count)
             self.player_move()
 
@@ -91,6 +90,11 @@ class Chess:
         self.chess_engine.update_position([bot_input])
         self.text_to_speech.speech(bot_input)
         print(self.chess_engine.get_board())
+
+    def play_game(self):
+        while True:
+            
+
 
 chess_engine = ChessEngine()
 speech_recognition = SpeechRecognition()
