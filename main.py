@@ -82,7 +82,8 @@ class Chess:
             self.count -= 1
             if self.count == 0:
                 self.text_to_speech.game_over()
-            self.text_to_speech.illegal_move(move, self.count)
+                return
+            self.text_to_speech.illegal_move(audio_input, self.count)
             self.player_move()
 
     def bot_move(self):
