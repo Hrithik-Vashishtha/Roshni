@@ -63,11 +63,13 @@
 from chess_bot import ChessEngine
 from speech_recognition_utils import SpeechRecognition
 from chess import Board
+from text_to_speech_utils import TextToSpeech
 
 class Chess:
-    def __init__(self, chess_engine, speech_recognition):
+    def __init__(self, chess_engine, speech_recognition, text_to_speech):
         self.chess_engine = chess_engine
         self.speech_recognition = speech_recognition
+        self.text_to_speech = text_to_speech
     
     def player_move(self):
         audio_input = self.speech_recognition.audio_input()
@@ -80,10 +82,12 @@ class Chess:
     def bot_move(self):
         bot_input = self.chess_engine.get_best_move()
         self.chess_engine.update_position([bot_input])
+        self.text_to_speech.speech(bot_input)
         print(self.chess_engine.get_board())
 
 chess_engine = ChessEngine()
 speech_recognition = SpeechRecognition()
-chess_game = Chess(chess_engine, speech_recognition)
+text_to_speech = TextToSpeech()
+chess_game = Chess(chess_engine, speech_recognition, text_to_speech)
 chess_game.player_move()
 chess_game.bot_move()
