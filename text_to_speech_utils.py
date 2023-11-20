@@ -35,7 +35,7 @@ class TextToSpeech:
         self.engine.say("Congratulations, you have checkmated your opponent")
         self.engine.runAndWait()
 
-    def checmate_lose(self):
+    def checkmate_lose(self):
         self.engine.setProperty('rate', 120)
         self.engine.say("you have been checkmated, game over!")
         self.engine.runAndWait()

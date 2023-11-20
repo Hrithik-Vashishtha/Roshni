@@ -79,8 +79,7 @@ class Chess:
             self.chess_engine.update_position([audio_input])
             print(self.chess_engine.get_board())
             if self.chess_engine.is_checkmate():
-                self.text_to_speech.checkmate_win()
-                return False
+                return self.text_to_speech.checkmate_win()
         else:
             self.count -= 1
             if self.count == 0:
@@ -95,16 +94,14 @@ class Chess:
         self.text_to_speech.speech(bot_input)
         print(self.chess_engine.get_board())
         if self.chess_engine.is_checkmate():
-            self.text_to_speech.checmate_lose()
-            return False
+            return self.text_to_speech.checkmate_lose()
 
     def play_game(self):
-        while True:
-            chess_game.player_move()
-            chess_game.bot_move()
-
-
-
+        while True: 
+            if not self.player_move():
+                break
+            if not self.bot_move():
+                break
 
 
 chess_engine = ChessEngine()
