@@ -5,6 +5,7 @@ class ChessEngine():
         # Initialize the Stockfish engine
         self.stockfish = Stockfish("C:/ProgramData/stockfish/stockfish-windows-x86-64-modern.exe")
         self.stockfish.set_fen_position("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1")
+        self.board = chess.Board()
 
     def set_position(self, fen):
         self.stockfish.set_fen_position(fen)

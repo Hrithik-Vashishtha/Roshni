@@ -22,10 +22,20 @@ class TextToSpeech:
 
     def illegal_move(self, move, count):
         self.engine.setProperty('rate', 120)
-        self.engine.say(f"The move {move} is illegal, please try again, you have only {count} chances left")
+        self.engine.say(f"The move {move} is illegal, please try again, you have only, {count}, chances left")
         self.engine.runAndWait()
 
     def game_over(self):
         self.engine.setProperty('rate', 120)
         self.engine.say("Illegal Move, Game Over")
+        self.engine.runAndWait()
+
+    def checkmate_win(self):
+        self.engine.setProperty('rate', 120)
+        self.engine.say("Congratulations, you have checkmated your opponent")
+        self.engine.runAndWait()
+
+    def checmate_lose(self):
+        self.engine.setProperty('rate', 120)
+        self.engine.say("you have been checkmated, game over!")
         self.engine.runAndWait()
