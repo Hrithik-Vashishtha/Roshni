@@ -33,6 +33,7 @@ class Chess:
     def bot_move(self):
         bot_input = self.chess_engine.get_best_move()
         self.chess_engine.update_position([bot_input])
+        print(f"opponent move is {bot_input}")
         print(self.chess_engine.get_board())
         self.text_to_speech.speech(bot_input)
         if self.chess_engine.is_checkmate():
