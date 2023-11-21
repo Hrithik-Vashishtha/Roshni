@@ -39,3 +39,8 @@ class TextToSpeech:
         self.engine.setProperty('rate', 120)
         self.engine.say("you have been checkmated, game over!")
         self.engine.runAndWait()
+    
+    def game_start(self):
+        self.engine.setProperty('rate', 120)
+        self.engine.say("Game started, please play your move!")
+        self.engine.runAndWait()
