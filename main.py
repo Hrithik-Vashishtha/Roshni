@@ -11,34 +11,39 @@ class Chess:
         self.count = 3
     
     def player_move(self):
-        audio_input = self.speech_recognition.audio_input()
-        if audio_input and self.chess_engine.legal_move(audio_input):
-            print(audio_input)
-            self.chess_engine.update_position([audio_input])
-            print(self.chess_engine.get_board())
-            if self.chess_engine.is_checkmate():
-                return self.text_to_speech.checkmate_win()
-        else:
-            self.count -= 1
-            if self.count == 0:
-                self.text_to_speech.game_over()
+        while self.count > 0:
+            audio_input = self.speech_recognition.audio_input()
+            if audio_input and self.chess_engine.legal_move(audio_input):
+                print(audio_input)
+                self.chess_engine.update_position([audio_input])
+                print(self.chess_engine.get_board())
+                if self.chess_engine.is_checkmate():
+                    self.text_to_speech.checkmate_win()
+                    return True
                 return False
-            self.text_to_speech.illegal_move(audio_input, self.count)
-            self.player_move()
+            else:
+                self.count -= 1
+                if self.count == 0:
+                    self.text_to_speech.game_over()
+                    return True
+                self.text_to_speech.illegal_move(audio_input, self.count)
+        return False
+
 
     def bot_move(self):
         bot_input = self.chess_engine.get_best_move()
         self.chess_engine.update_position([bot_input])
-        self.text_to_speech.speech(bot_input)
         print(self.chess_engine.get_board())
+        self.text_to_speech.speech(bot_input)
         if self.chess_engine.is_checkmate():
-            return self.text_to_speech.checkmate_lose()
+            self.text_to_speech.checkmate_lose()
+            return True
 
     def play_game(self):
         while True: 
-            if not self.player_move():
+            if self.player_move():
                 break
-            if not self.bot_move():
+            if self.bot_move():
                 break
 
 
@@ -47,3 +52,5 @@ speech_recognition = SpeechRecognition()
 text_to_speech = TextToSpeech()
 chess_game = Chess(chess_engine, speech_recognition, text_to_speech)
 chess_game.play_game()
+# chess_game.player_move()
+# chess_game.bot_move()
