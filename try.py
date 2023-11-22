@@ -67,3 +67,4 @@
 #             print("current_position: ", current_position)
 # chess = ChessGame()
 # chess.play_game()
+print("Hello")
