@@ -9,6 +9,7 @@ class Chess:
         self.speech_recognition = speech_recognition
         self.text_to_speech = text_to_speech
         self.count = 3
+        # self.time = time
     
     def player_move(self):
         while self.count > 0:
