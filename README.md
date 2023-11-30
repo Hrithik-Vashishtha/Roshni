@@ -1,4 +1,4 @@
-                                                                Roshni
+                                                           Roshni
                                                                 
 Introduction: 
 In 2020, amid the Covid lockdown, my fascination with chess took root, and since then, it's become a daily pursuit. An event hosted by Chessbase India opened my eyes to visually impaired chess players and sparked a determination within me to contribute something meaningful. Thus, the project Roshni was born—a chess assistant tailored specifically for visually impaired players.
