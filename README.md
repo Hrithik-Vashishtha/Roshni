@@ -14,6 +14,7 @@ Tech Stack:
 2. Flask
 3. SQL
 4. Git
+5. print
 
 Key Modules:
 1. Chess
