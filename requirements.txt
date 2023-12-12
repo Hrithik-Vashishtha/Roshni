@@ -1,4 +1,4 @@
 chess==1.10.0
 stockfish==3.28.0
 SpeechRecognition==3.10.0
-pyttsx3                   2.90
+pyttsx3==2.90
