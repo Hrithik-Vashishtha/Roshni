@@ -15,4 +15,13 @@ class GameDatabase:
         values = (moves_list,)
         self.mycursor.execute(query, values)
         self.mydb.commit()
-
+    
+    def get_moves(self, id):
+        if id:
+            query = "select * from game_data where id = %s"
+            self.mycursor.execute(query, (id,))
+            result = self.mycursor.fetchall()
+            if result:
+                return({"moves": result})
+            return("id not found")
+        return("id not provided")
