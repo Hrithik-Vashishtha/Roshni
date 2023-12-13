@@ -60,11 +60,11 @@ class Chess:
         return moves_string 
 
 
-chess_engine = ChessEngine()
-speech_recognition = SpeechRecognition()
-text_to_speech = TextToSpeech()
-game_database = GameDatabase()
+# chess_engine = ChessEngine()
+# speech_recognition = SpeechRecognition()
+# text_to_speech = TextToSpeech()
+# game_database = GameDatabase()
 
-chess_game = Chess(chess_engine, speech_recognition, text_to_speech, game_database)
-text_to_speech.game_start()
-moves_list = chess_game.play_game()
+# chess_game = Chess(chess_engine, speech_recognition, text_to_speech, game_database)
+# text_to_speech.game_start()
+# moves_list = chess_game.play_game()
