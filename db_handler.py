@@ -5,7 +5,7 @@ class GameDatabase:
         self.mydb = mysql.connector.connect(
             host="localhost",
             user="root",
-            passwd="09041997",
+            passwd="",
             database="chess"
         )   
         self.mycursor = self.mydb.cursor()
