@@ -12,7 +12,8 @@ class SpeechRecognition:
 
             try:
                 text = r.recognize_google(audio)
-                return text.lower().replace(" ", "")
+                # return text.lower().replace(" ", "")
+                return text.lower()
             except sr.UnknownValueError:
                 print("Sorry, I didn't get this")
                 return None  # Return None when speech cannot be recognized
